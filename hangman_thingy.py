@@ -57,7 +57,7 @@ def print_gallows(strikes):
         print(" _______")
         print(" |/    |")
         print(" |    (_)")
-        print(" |    \|")
+        print(" |    \\|")
         print(" |     |")
         print(" |")
         print(" |")
@@ -67,7 +67,7 @@ def print_gallows(strikes):
         print(" _______")
         print(" |/    |")
         print(" |    (_)")
-        print(" |    \|/")
+        print(" |    \\|/")
         print(" |     |")
         print(" |")
         print(" |")
@@ -77,7 +77,7 @@ def print_gallows(strikes):
         print(" _______")
         print(" |/    |")
         print(" |    (_)")
-        print(" |    \|/")
+        print(" |    \\|/")
         print(" |     |")
         print(" |    /")
         print(" |")
@@ -87,15 +87,15 @@ def print_gallows(strikes):
         print(" _______")
         print(" |/    |")
         print(" |    (_)")
-        print(" |    \|/")
+        print(" |    \\|/")
         print(" |     |")
-        print(" |    / \ ")
+        print(" |    / \\ ")
         print(" |")
         print("_|___")
         return start_game()
 
 
-def start_game(words, lettter, user_guess) -> None:
+def start_game(words, guess, letter) -> None:
     strikes = 0
     previous_guesses = []
     while strikes < 6:
@@ -105,7 +105,7 @@ def start_game(words, lettter, user_guess) -> None:
         
         #check if the full word has been guessed and break out if it was
         
-        guess = get_guess(previous_guesses, random_word, guess)
+        guess = get_guess(previous_guesses, random_word, guess, letter)
         previous_guesses.append(guess) #add guess to previous_guesses
         if guess != len(random_word): #if guess is not in word, add 1 to strikes
             strikes + 1
@@ -127,7 +127,7 @@ def play_game():
         user_choice = input("Enter your choice (1 or 2): ")
         
         if user_choice == "1":
-            start_game(words)
+            start_game(words, "guess", "letter")
         elif user_choice == "2":
             print("Goodbye.")
             exit()
@@ -138,6 +138,3 @@ def play_game():
 
 if __name__ == '__main__':
     play_game()
-
-
-#letter = random_word.find(guess)
